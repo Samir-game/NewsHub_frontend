@@ -1,9 +1,12 @@
-
+import SignUp from "./pages/SignUp"
+import Login from "./pages/Login"
 function App() {
 
 
   return (
-    <div className="bg-red-700">NewsHub</div>
+    <div>
+      <Login/>
+    </div>
   )
 }
 
