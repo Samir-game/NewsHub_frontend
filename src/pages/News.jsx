@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Navbar = () => {
+const News = () => {
   return (
     <div>
-      this is navbar
+      this is detailed news
     </div>
   )
 }
 
-export default Navbar
+export default News
