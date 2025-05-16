@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-
+import {useNavigate} from 'react-router-dom'
 
 const SignUp = () => {
   const {
@@ -12,7 +12,7 @@ const SignUp = () => {
     formState: { errors, isSubmitting },
   } = useForm();
 
-
+  const navigate=useNavigate();
 
   const onSubmit = async (data) => {
     
@@ -29,6 +29,7 @@ const SignUp = () => {
       const token= response?.data?.token;
       localStorage.setItem("token",token);
       toast.success("Registration successful!");
+      navigate("/home")
       reset();
 
 

@@ -54,7 +54,9 @@ const Home = () => {
       ) : (
         <ul className="space-y-4">
           {news.map((nz) => (
-            <ArticleCard key={nz._id} article={nz}/>
+            <li key={nz._id}>
+              <ArticleCard  article={nz}/>
+            </li>
           ))}
         </ul>
       )}
