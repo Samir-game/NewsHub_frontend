@@ -18,7 +18,6 @@ const SignUp = () => {
     
     try {
 
-      console.log("submitting to backend",data);
       const response = await axios.post(import.meta.env.VITE_SIGNUP_API, data);
 
       if (response.status !== 201) {
@@ -28,10 +27,10 @@ const SignUp = () => {
 
       const token= response?.data?.token;
       localStorage.setItem("token",token);
+      localStorage.setItem("userId",response?.data?.userId);
       toast.success("Registration successful!");
       navigate("/home")
       reset();
-
 
     } catch (error) {
       console.error("Error during registration:", error);

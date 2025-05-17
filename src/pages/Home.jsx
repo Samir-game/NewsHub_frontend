@@ -23,8 +23,9 @@ const Home = () => {
 
       setTotalPages(response?.data?.totalPages);
       setNews(response?.data?.news);
+
     } catch (error) {
-      console.log("Error getting news from backend", error);
+      console.log("Error getting news from backend/database", error);
       toast.error("Failed to fetch news. Try again later.");
     }
   };

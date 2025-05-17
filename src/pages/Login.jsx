@@ -16,8 +16,7 @@ const Login = () => {
 
   const onSubmit = async (data) => {
     try {
-
-      console.log('Submitting to backend:', data);
+      
       const response = await axios.post(import.meta.env.VITE_LOGIN_API, data);
      
       if (response.status !== 200) {
@@ -27,6 +26,7 @@ const Login = () => {
 
       const token = response?.data?.token;
       localStorage.setItem('token', token);
+      localStorage.setItem("userId",response?.data?.userId);
       toast.success('Login successful!');
       navigate("/home")
       reset();
