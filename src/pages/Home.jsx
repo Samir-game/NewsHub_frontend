@@ -3,6 +3,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ArticleCard from "../components/ArticleCard";
+import "./Home.css";
 
 const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -32,57 +33,46 @@ const Home = () => {
     fetchNews(currentPage);
   }, [currentPage]);
 
-  const prevPage = () => {
-    if (currentPage > 1) {
+  const handlePrev = () => {
+    if (currentPage > 1){
       setCurrentPage((prev) => prev - 1);
     }
   };
 
-  const nextPage = () => {
-    if (currentPage < totalPages) {
+  const handleNext = () => {
+    if (currentPage < totalPages){ 
       setCurrentPage((prev) => prev + 1);
     }
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-4 container">
-      <h1 className="text-blue-500 text-3xl font-bold mb-6 text-center">
-        Latest News
-      </h1>
+    <div className="home-container">
+      <ToastContainer />
+      <h1 className="home-title">Latest Headlines</h1>
 
-      {news.length === 0 ? (
-        <p className="text-center text-gray-500">No news available.</p>
-      ) : (
-        <ul className="space-y-4">
-          {news.map((nz) => (
-            <li key={nz._id}>
-              <ArticleCard article={nz} />
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="articles-grid">
+        {news.map((article) => (
+          <ArticleCard key={article._id} article={article} />
+        ))}
+      </div>
 
-      <div className="flex justify-between items-center mt-6">
+      <div className="pagination-controls">
         <button
-          onClick={prevPage}
+          className="pagination-button"
+          onClick={handlePrev}
           disabled={currentPage === 1}
-          className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Previous
         </button>
-        <span className="text-lg font-medium">
-          Page {currentPage} of {totalPages}
-        </span>
+        <span className="page-indicator">Page {currentPage} of {totalPages}</span>
         <button
-          onClick={nextPage}
+          className="pagination-button"
+          onClick={handleNext}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 bg-blue-500 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Next
         </button>
       </div>
-
-      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

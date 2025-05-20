@@ -1,0 +1,61 @@
+/* sidebar.css - Blue Themed Sidebar */
+
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: #1e293b; /* dark navy blue */
+  color: #f1f5f9; /* light blue-gray text */
+  padding: 25px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px 0 15px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sidebar-title {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 35px;
+  text-align: center;
+  color: #3b82f6; 
+  letter-spacing: 1.3px;
+  font-family: 'Roboto Slab', serif;
+  cursor: pointer;
+}
+
+.sidebar-button {
+  background-color: transparent;
+  border: none;
+  color: #cbd5e1; 
+  text-align: left;
+  padding: 14px 12px;
+  margin: 10px 0;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 8px;
+  user-select: none;
+}
+
+.sidebar-button:hover {
+  background-color: #3b82f6; 
+  color: #fff;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.7);
+}
+
+.logout-button {
+  margin-top: auto;
+  color: #ef4444; 
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.logout-button:hover {
+  color: #b91c1c;
+}

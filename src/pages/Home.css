@@ -1,0 +1,63 @@
+.home-container {
+  margin-left: 240px; 
+  padding: 30px 40px;
+  background: #f0f4ff; 
+  min-height: 100vh;
+  color: #1e293b;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home-title {
+  font-size: 2.7rem;
+  font-weight: 900;
+  color: #1e3a8a;
+  margin-bottom: 25px;
+  border-bottom: 3px solid #2563eb; 
+  padding-bottom: 12px;
+  letter-spacing: 1.2px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+
+.pagination-controls {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.pagination-button {
+  background-color: #2563eb; 
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #1e40af; 
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(30, 64, 175, 0.6);
+}
+
+.pagination-button:disabled {
+  background-color: #a5b4fc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.page-indicator {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #334155;
+}

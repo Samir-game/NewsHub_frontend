@@ -1,0 +1,94 @@
+.commentop-container {
+  margin-left: 260px; 
+  padding: 30px 40px;
+  max-width: 850px;
+  background-color: #f2f5ff;
+  min-height: 100vh;
+  box-shadow: inset 0 0 30px rgba(83, 109, 253, 0.1);
+  border-radius: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.comment-form {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  padding: 30px 35px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(83, 109, 253, 0.15);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.comment-label {
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #3f51b5;
+  font-size: 20px;
+  letter-spacing: 0.03em;
+  user-select: none;
+}
+
+.comment-textarea {
+  resize: vertical;
+  padding: 16px 20px;
+  font-size: 18px;
+  border: 2.5px solid #a3b1ff;
+  border-radius: 14px;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  min-height: 140px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: inset 0 3px 8px rgba(83, 109, 253, 0.1);
+}
+
+.comment-textarea:focus {
+  border-color: #536dfd;
+  outline: none;
+  box-shadow: 0 0 12px rgba(83, 109, 253, 0.6);
+}
+
+.comment-textarea.error {
+  border-color: #ff6b6b;
+  background-color: #ffe7e7;
+  box-shadow: 0 0 12px rgba(255, 107, 107, 0.7);
+}
+
+.error-message {
+  color: #ff4d4d;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.comment-submit-button {
+  margin-top: 25px;
+  padding: 14px 22px;
+  background-color: #536dfd;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(83, 109, 253, 0.4);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, transform 0.2s ease;
+  align-self: flex-start;
+  user-select: none;
+}
+
+.comment-submit-button:disabled {
+  background-color: #a3b1ff;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.comment-submit-button:hover:not(:disabled) {
+  background-color: #3949ab;
+  box-shadow: 0 9px 30px rgba(57, 73, 171, 0.6);
+  transform: translateY(-2px);
+}

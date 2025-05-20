@@ -1,0 +1,62 @@
+.aboutus-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+  border-left: 8px solid #1E3A8A;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(30, 58, 138, 0.15);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+.aboutus-container:hover {
+  box-shadow: 0 12px 30px rgba(30, 58, 138, 0.25);
+}
+
+.aboutus-title {
+  font-size: 2.5rem;
+  color: #1E3A8A;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-align: center;
+  border-bottom: 3px solid #1E3A8A;
+  padding-bottom: 10px;
+}
+
+.aboutus-content1,
+.aboutus-content2 {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+
+@media (max-width: 768px) {
+  .aboutus-container {
+    padding: 25px 20px;
+    margin: 40px 20px;
+  }
+
+  .aboutus-title {
+    font-size: 2rem;
+  }
+
+  .aboutus-content1,
+  .aboutus-content2 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutus-title {
+    font-size: 1.7rem;
+  }
+
+  .aboutus-content1,
+  .aboutus-content2 {
+    font-size: 0.95rem;
+  }
+}

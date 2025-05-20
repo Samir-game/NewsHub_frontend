@@ -5,6 +5,7 @@ import axios from "axios";
 import NewsCard from "../components/NewsCard";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./commentop.css";
 
 const CommentOp = () => {
   const { newsId } = useParams();
@@ -21,20 +22,20 @@ const CommentOp = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.post(`${import.meta.env.VITE_ADD_COMMENT}/${newsId}`,data,
-         {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
+      const response = await axios.post(
+        `${import.meta.env.VITE_ADD_COMMENT}/${newsId}`,
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
       if (response.status !== 200) {
         toast.error(response?.data?.msg || "Error adding comment");
         return;
       }
-
-      toast.success("Comment added!");
       reset();
       setRefresh((r) => !r);
     } catch (error) {
@@ -44,21 +45,19 @@ const CommentOp = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto mt-10 p-4 container">
+    <div className="commentop-container">
       <NewsCard newsId={newsId} refresh={refresh} />
 
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-6">
-        <label htmlFor="comment" className="block font-semibold mb-2">
+      <form className="comment-form" onSubmit={handleSubmit(onSubmit)}>
+        <label htmlFor="comment" className="comment-label">
           Add Comment:
         </label>
         <textarea
           id="comment"
+          className={`comment-textarea ${errors.comment ? "error" : ""}`}
           aria-invalid={errors.comment ? "true" : "false"}
           aria-describedby="comment-error"
           rows={6}
-          className={`w-full p-2 border rounded resize-none ${
-            errors.comment ? "border-red-500" : "border-gray-300"
-          }`}
           {...register("comment", {
             required: "Comment cannot be empty",
             minLength: {
@@ -69,15 +68,15 @@ const CommentOp = () => {
         />
 
         {errors.comment && (
-          <p id="comment-error" className="text-red-500 text-sm mt-1" role="alert">
+          <p id="comment-error" role="alert" className="error-message">
             {errors.comment.message}
           </p>
         )}
 
         <button
+          className="comment-submit-button"
           type="submit"
           disabled={isSubmitting}
-          className="mt-3 px-6 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? "Adding..." : "Add Comment"}
         </button>
