@@ -1,12 +1,80 @@
-# React + Vite
+# NewsHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Overview
+ A responsive web application that aggregates and displays the latest news articles from variouscategories such as technology, sports, entertainment, and business. It leverages a news API to fetch real-time updates and presents them in a clean, categorized format. Includes a commenting feature to foster an interactiveenvironment for discussion.
 
-Currently, two official plugins are available:
+## 🚀 Features
+- 🔐 **User Authentication**  
+  Secure user registration and login with JWT-based authentication.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📰 **News Feed API**  
+  Serve news articles from the database to the frontend.
 
-## Expanding the ESLint configuration
+- 💬 **Comment System**  
+  Users can post comments on news articles.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🗑️ **Comment Management**  
+  Users can delete their own comments.
+
+- 🔒 **Protected Routes**  
+  Certain routes are secured using middleware authentication.
+
+---
+
+## 🛠️ Tech 
+- **Frontend**: React.js, Axios
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB (for storing users and pins)
+- **Other Libraries**: Axios, bcryptjs, etc.
+
+
+## 🛠️ Installation & Setup
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/yourusername/your-repo.git
+cd your-repo
+```
+
+### 2️⃣ Install Dependencies
+```sh
+npm install
+```
+
+### 3️⃣ Start the Frontend
+```sh
+npm run dev
+```
+
+### 4️⃣ Start the Backend (if applicable)
+```sh
+cd backend
+npm install
+npm start
+```
+
+## 🌍 API Endpoints
+
+### 🔐 Authentication Routes
+
+| Method | Endpoint       | Description                                         |
+|--------|----------------|-----------------------------------------------------|
+| POST   | `/api/signup`  | Register a new user                                 |
+| POST   | `/api/login`   | Log in an existing user and receive a JWT token     |
+
+---
+
+### 📰 News Routes
+
+| Method | Endpoint             | Description                                          |
+|--------|----------------------|------------------------------------------------------|
+| GET    | `/api/home`          | Fetch all news articles from the database            |
+| GET    | `/api/home/:newsId`  | Get a specific news article and its associated comments |
+
+---
+
+### 💬 Comment Routes
+
+| Method | Endpoint                          | Description                                             |
+|--------|-----------------------------------|---------------------------------------------------------|
+| POST   | `/api/addComment/:newsId`         | Add a comment to a specific news article *(Requires Auth)* |
+| DELETE | `/api/deleteComment/:commentId`   | Delete a comment *(Requires Auth)*                      |
