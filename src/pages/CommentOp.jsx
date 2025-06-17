@@ -5,7 +5,7 @@ import axios from "axios";
 import NewsCard from "../components/NewsCard";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./commentop.css";
+import "./CommentOp.css";
 
 const CommentOp = () => {
   const { newsId } = useParams();
